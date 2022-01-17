@@ -40,9 +40,23 @@ public class IHMPile extends JFrame implements ActionListener{
             // à compléter
 
             // en cas d'exception
+            try{p.empiler(Integer.parseInt(donnee.getText()));
+                contenu.setText(p.toString());
+            }catch(PilePleineException e){
+                contenu.setText(p.toString() + " estPleine !");
+            }catch(NumberFormatException nfe){
+                contenu.setText(p.toString() + "error"+ nfe.getMessage());
+            }
             //contenu.setText( /* à compléter */"" + " estPleine !");
 
         }else{
+            try{
+                
+                sommet.setText(Integer.toString(p.depiler()));
+                contenu.setText(p.toString());
+            }catch(PileVideException e){
+                contenu.setText(p.toString() + "est Vide!");
+            }
 
             // à compléter
             // en cas d'exception
